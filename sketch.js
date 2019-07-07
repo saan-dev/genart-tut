@@ -8,6 +8,9 @@ const settings = {
 };
 
 const sketch = () => {
+    const palette = random.pick(palettes);
+    console.log(palette);
+    
     const createGrid = () => {
         const points = [];
         const count = 40;
@@ -16,6 +19,7 @@ const sketch = () => {
                 const u = count <= 1 ?  0.5 : x / (count - 1) ;
                 const v = count <= 1 ?  0.5 : y / (count - 1) ;
                 points.push({
+                        color: 'blue',
                         radius: Math.abs(0.01 + random.gaussian() * 0.01),
                         position: [ u, v ]
                 });
