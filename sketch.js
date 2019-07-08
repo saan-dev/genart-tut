@@ -38,7 +38,8 @@ const sketch = () => {
         points.forEach(data => {
             const {
                 position, 
-                radius
+                radius,
+                color
             } = data;
 
             const [u, v] = position;
@@ -50,7 +51,7 @@ const sketch = () => {
             context.arc(x,y,radius * width,0,Math.PI * 2,false);
             context.strokeStyle = 'black';
             context.lineWidth = 10;
-            context.fillStyle = 'red'
+            context.fillStyle = color
             context.fill();
         });
     };
