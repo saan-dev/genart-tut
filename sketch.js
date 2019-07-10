@@ -49,12 +49,16 @@ const sketch = () => {
             const x = lerp(margin, width - margin, u)
             const y = lerp(margin, height - margin, v)
             
-            context.beginPath();
-            context.arc(x,y,radius * width,0,Math.PI * 2,false);
-            context.strokeStyle = 'black';
-            context.lineWidth = 10;
-            context.fillStyle = color
-            context.fill();
+            // context.beginPath();
+            // context.arc(x,y,radius * width,0,Math.PI * 2,false);
+            // context.strokeStyle = 'black';
+            // context.lineWidth = 10;
+            // context.fillStyle = color
+            // context.fill();
+
+            context.fillStyle = color;
+            context.font = `${radius * width}px "Helvetica"`;
+            context.fillText('=',x,y);
         });
     };
 };
