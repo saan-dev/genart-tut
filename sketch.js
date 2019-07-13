@@ -23,6 +23,7 @@ const sketch = () => {
                 points.push({
                         color: random.pick(palette),
                         radius,
+                        rotation: random.noise2D(u,v)   ,
                         position: [ u, v ]
                 });
             }
@@ -41,7 +42,8 @@ const sketch = () => {
             const {
                 position, 
                 radius,
-                color
+                color,
+                rotation
             } = data;
 
             const [u, v] = position;
@@ -55,10 +57,14 @@ const sketch = () => {
             // context.lineWidth = 10;
             // context.fillStyle = color
             // context.fill();
-
+            context.save();
             context.fillStyle = color;
             context.font = `${radius * width}px "Helvetica"`;
-            context.fillText('=',x,y);
+            context.translate(x, y)
+            context.rotate(rotation);
+            context.fillText('🏴‍☠️',0,0);
+            context.restore();
+
         });
     };
 };
